@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: BMI_Calculator(),
+    home: BMICalculator(),
   ));
 }
-class BMI_Calculator extends StatefulWidget {
-  const BMI_Calculator({Key? key}) : super(key: key);
+class BMICalculator extends StatefulWidget {
+  const BMICalculator({Key? key}) : super(key: key);
 
   @override
-  State<BMI_Calculator> createState() => _BMI_CalculatorState();
+  State<BMICalculator> createState() => _BMICalculatorState();
 }
 
-class _BMI_CalculatorState extends State<BMI_Calculator> {
+class _BMICalculatorState extends State<BMICalculator> {
 
   var heightController =  TextEditingController();
   var weightController = TextEditingController();
@@ -70,26 +69,26 @@ class _BMI_CalculatorState extends State<BMI_Calculator> {
       backgroundColor: Colors.grey[800],
       appBar: AppBar(
         backgroundColor: Colors.black,
-        title: Text('BMI Calculator'),
+        title: const Text('BMI Calculator'),
         centerTitle: true,
       ),
       body: Container(
-        margin: EdgeInsets.fromLTRB(15 , 15 , 15 , 10),
-        padding: EdgeInsets.all(20.0),
+        margin: const EdgeInsets.fromLTRB(15 , 15 , 15 , 10),
+        padding: const EdgeInsets.all(20.0),
         decoration: BoxDecoration(
           color: Colors.grey[200],
           borderRadius: BorderRadius.circular(12)
         ),
         child: Column(
-          children: [
-            Text('Check your BMI',
+          children:  [
+            const Text('Check your BMI',
             style: TextStyle(
               fontSize: 28,
             ),
             ),
-            SizedBox(height: 40.0),
+            const SizedBox(height: 40.0),
             TextField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 suffix: Text('in cm'),
                 labelText: 'Height',
                 labelStyle: TextStyle(
@@ -99,9 +98,9 @@ class _BMI_CalculatorState extends State<BMI_Calculator> {
               keyboardType: TextInputType.number,
               controller: heightController,
             ),
-            SizedBox(height: 30.0),
+            const SizedBox(height: 30.0),
             TextField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Weight',
                 labelStyle: TextStyle(
                   fontSize: 20.0,
@@ -111,26 +110,26 @@ class _BMI_CalculatorState extends State<BMI_Calculator> {
               keyboardType: TextInputType.number,
               controller: weightController,
             ),
-            SizedBox(height: 25.0),
-            Container(
+            const SizedBox(height: 25.0),
+             SizedBox(
               width: 200,
               child: ElevatedButton(
-                  child: Text('Calculate BMI'),
                   onPressed: (){
-                        double value = calculateBMI(heightController, weightController);},
+                        calculateBMI(heightController, weightController);},
                     style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.black
                   ),
+                  child: const Text('Calculate BMI'),
               ),
             ),
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
             Text(result ,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 35,
               ),
             ),
-            SizedBox(height: 10),
-            Text(resultText,style: TextStyle(fontSize: 25)
+            const SizedBox(height: 10),
+            Text(resultText,style: const TextStyle(fontSize: 25)
             ),
           ],
         ),
